@@ -1,0 +1,7 @@
+{
+	"prototypes": [
+		"Object.setPrototypeOf()",
+		"Object.create()",
+		"ключевое слово new"
+	]
+}
