@@ -1,0 +1,18 @@
+[
+	{
+		"theme": "Common review",
+		"content": "data/common/"
+	},
+	{
+		"theme": "Example №1",
+		"content": "data/code_expl_1/"
+	},
+	{
+		"theme": "Example №2",
+		"content": "data/code_expl_2/"
+	},
+	{
+		"theme": "Example №3",
+		"content": "data/code_expl_3/"
+	}
+]

@@ -1,0 +1,42 @@
+[
+	{
+		"theme": "Arrow functions",
+		"content": "data/Arrow functions/"
+	},
+	{
+		"theme": "Default parameters",
+		"content": "data/Default parameters/"
+	},
+	{
+		"theme": "Rest parameter",
+		"content": "data/Rest parameter/"
+	},
+	{
+		"theme": "Spread operator for arrays",
+		"content": "data/Spread operator for arrays/"
+	},
+	{
+		"theme": "Object destructuring",
+		"content": "data/Object destructuring/"
+	},
+	{
+		"theme": "Array destructuring",
+		"content": "data/Array destructuring/"
+	},
+	{
+		"theme": "Objects",
+		"content": "data/Objects/"
+	},
+	{
+		"theme": "Spread operator for objects",
+		"content": "data/Spread operator for objects/"
+	},
+	{
+		"theme": "Prototypes",
+		"content": "data/Prototypes/"
+	},
+	{
+		"theme": "Classes",
+		"content": "data/Classes/"
+	}
+]
