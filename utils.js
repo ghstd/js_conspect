@@ -1,4 +1,5 @@
 function renderList(url) {
+
 	return fetch(`./assets/${url}/data.json`)
 		.then(response => response.json())
 		.then(body => {
@@ -18,6 +19,7 @@ function renderList(url) {
 }
 
 function renderJSContent() {
+
 	document.querySelectorAll('.aside__item').forEach(el => {
 
 		el.addEventListener('click', e => {
@@ -101,6 +103,44 @@ function renderStandardTabs(url) {
 		}).then(() => {
 
 			fetch(`./assets/Webpack/${url}webpack.config.js`)
+				.then(response => response.text())
+				.then(body => {
+					document.querySelector('.tabs__items')
+						.insertAdjacentHTML('beforeend', `
+					<div class="tabs__item">
+						<pre><code class="language-javascript">${body}</code></pre>
+					</div>
+					`)
+				}).then(() => {
+
+					hljs.highlightAll()
+					tabsHandler()
+				})
+		})
+}
+
+function renderLendingTabs(url) {
+
+	const content = document.querySelector('.content')
+	content.innerHTML = `
+		<div class="tabs__panels">
+			<div class="tabs__panel">Css</div>
+			<div class="tabs__panel">Webpack</div>
+		</div>
+		<div class="tabs__items"></div>
+	`
+	fetch(`./assets/Lendings/${url}style.scss`)
+		.then(response => response.text())
+		.then(body => {
+			document.querySelector('.tabs__items')
+				.insertAdjacentHTML('beforeend', `
+				<div class="tabs__item">
+					<pre><code class="language-scss">${body}</code></pre>
+				</div>
+				`)
+		}).then(() => {
+
+			fetch(`./assets/Lendings/${url}webpack.config.js`)
 				.then(response => response.text())
 				.then(body => {
 					document.querySelector('.tabs__items')

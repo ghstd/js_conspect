@@ -29,6 +29,22 @@ headerItem[1].addEventListener('click', () => {
 		})
 })
 
+headerItem[2].addEventListener('click', () => {
+
+	renderList('Lendings')
+		.then(() => {
+			document.querySelectorAll('.aside__item').forEach(el => {
+
+				el.addEventListener('click', e => {
+					document.querySelectorAll('.aside__item').forEach(el => el.parentElement.classList.remove('active'))
+					el.parentElement.classList.add('active')
+
+					renderLendingTabs(e.target.dataset.src)
+				})
+			})
+		})
+})
+
 
 
 
