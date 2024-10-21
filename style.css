@@ -39,6 +39,10 @@ body {
 	background-color: var(--color-1);
 }
 
+body {
+	font-family: "Roboto", sans-serif;
+}
+
 
 .container {
 	max-width: 1000px;

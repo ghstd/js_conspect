@@ -6,6 +6,7 @@ headerItem[0].addEventListener('click', () => {
 		.then(() => {
 			renderJSContent()
 		})
+		.catch(err => console.log(`renderList('JS'): ${err}`))
 })
 
 headerItem[1].addEventListener('click', () => {
@@ -27,6 +28,7 @@ headerItem[1].addEventListener('click', () => {
 				})
 			})
 		})
+		.catch(err => console.log(`renderList('Webpack'): ${err}`))
 })
 
 headerItem[2].addEventListener('click', () => {
@@ -43,6 +45,7 @@ headerItem[2].addEventListener('click', () => {
 				})
 			})
 		})
+		.catch(err => console.log(`renderList('Lendings'): ${err}`))
 })
 
 

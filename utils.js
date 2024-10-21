@@ -1,9 +1,10 @@
 function renderList(url) {
 
-	return fetch(`./assets/${url}/data.json`)
-		.then(response => response.json())
-		.then(body => {
+	return fetch(`./assets/${url}/data.json`).then(response => {
 
+		return response.json()
+	}).then(body => {
+			
 			const html = body.map(i => {
 				return `
 			<li>
@@ -16,6 +17,7 @@ function renderList(url) {
 
 			document.querySelector('.aside__list').innerHTML = html
 		})
+		.catch(err => console.log(err))
 }
 
 function renderJSContent() {
@@ -26,14 +28,14 @@ function renderJSContent() {
 			document.querySelectorAll('.aside__item').forEach(el => el.parentElement.classList.remove('active'))
 			el.parentElement.classList.add('active')
 
-			fetch(`./assets/JS/${e.target.dataset.src}index.js`)
-				.then(response => response.text())
+			fetch(`./assets/JS/${e.target.dataset.src}index.js`).then(response => response.text())
 				.then(body => {
 					document.querySelector('.content')
 						.innerHTML = `<pre><code class="language-javascript">>${body}</code></pre>`
 
 					hljs.highlightAll()
 				})
+				.catch(err => console.log(err))
 		})
 	})
 }
@@ -55,8 +57,7 @@ function renderNonStandardTabs() {
 		</div>
 	`
 
-	fetch(`./assets/Webpack/data/common/webpack_consp.md`)
-		.then(response => response.text())
+	fetch(`./assets/Webpack/data/common/webpack_consp.md`).then(response => response.text())
 		.then(body => {
 			document.querySelector('.tabs__items')
 				.insertAdjacentHTML('beforeend', `
@@ -66,8 +67,7 @@ function renderNonStandardTabs() {
 			`)
 		}).then(() => {
 
-			fetch(`./assets/Webpack/data/common/package.json`)
-				.then(response => response.text())
+			fetch(`./assets/Webpack/data/common/package.json`).then(response => response.text())
 				.then(body => {
 					document.querySelector('.tabs__items')
 						.insertAdjacentHTML('beforeend', `
@@ -80,7 +80,8 @@ function renderNonStandardTabs() {
 					hljs.highlightAll()
 					tabsHandler()
 				})
-		})
+				
+		}).catch(err => console.log(err))
 }
 
 function renderStandardTabs(url) {
@@ -93,8 +94,7 @@ function renderStandardTabs(url) {
 		</div>
 		<div class="tabs__items"></div>
 	`
-	fetch(`./assets/Webpack/${url}video.html`)
-		.then(response => response.text())
+	fetch(`./assets/Webpack/${url}video.html`).then(response => response.text())
 		.then(body => {
 			document.querySelector('.tabs__items')
 				.insertAdjacentHTML('beforeend', `
@@ -116,7 +116,7 @@ function renderStandardTabs(url) {
 					hljs.highlightAll()
 					tabsHandler()
 				})
-		})
+		}).catch(err => console.log(err))
 }
 
 function renderLendingTabs(url) {
@@ -129,8 +129,7 @@ function renderLendingTabs(url) {
 		</div>
 		<div class="tabs__items"></div>
 	`
-	fetch(`./assets/Lendings/${url}style.scss`)
-		.then(response => response.text())
+	fetch(`./assets/Lendings/${url}style.scss`).then(response => response.text())
 		.then(body => {
 			document.querySelector('.tabs__items')
 				.insertAdjacentHTML('beforeend', `
@@ -140,8 +139,7 @@ function renderLendingTabs(url) {
 				`)
 		}).then(() => {
 
-			fetch(`./assets/Lendings/${url}webpack.config.js`)
-				.then(response => response.text())
+			fetch(`./assets/Lendings/${url}webpack.config.js`).then(response => response.text())
 				.then(body => {
 					document.querySelector('.tabs__items')
 						.insertAdjacentHTML('beforeend', `
@@ -154,7 +152,7 @@ function renderLendingTabs(url) {
 					hljs.highlightAll()
 					tabsHandler()
 				})
-		})
+		}).catch(err => console.log(err))
 }
 
 function tabsHandler() {
